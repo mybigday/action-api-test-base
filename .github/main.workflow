@@ -5,7 +5,7 @@ workflow "Test" {
 
 action "Lint Dockerfile" {
   uses = "docker://replicated/dockerfilelint"
-  args = "Dockerfile"
+  args = ["Dockerfile"]
 }
 
 action "Build" {
