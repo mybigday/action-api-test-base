@@ -1,6 +1,6 @@
 workflow "Test" {
   on = "push"
-  resolves = ["actions/docker/cli@master"]
+  resolves = ["Build"]
 }
 
 action "Lint Dockerfile" {
@@ -8,7 +8,7 @@ action "Lint Dockerfile" {
   args = "Dockerfile"
 }
 
-action "actions/docker/cli@master" {
+action "Build" {
   uses = "actions/docker/cli@master"
   needs = ["Lint Dockerfile"]
   args = "build -t action-api-test-base ."
