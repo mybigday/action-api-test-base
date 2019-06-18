@@ -5,11 +5,11 @@ workflow "Test" {
 
 action "Lint Dockerfile" {
   uses = "docker://replicated/dockerfilelint"
-  args = ["Dockerfile"]
+  args = "Dockerfile"
 }
 
 action "actions/docker/cli@master" {
   uses = "actions/docker/cli@master"
   needs = ["Lint Dockerfile"]
-  args = "build -t action-api-test-base"
+  args = "build -t action-api-test-base ."
 }
